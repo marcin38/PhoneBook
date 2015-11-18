@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PhoneBooks" EntityType="DatabaseModel.PhoneBook" />
+    <EntitySet Name="PhoneTypes" EntityType="DatabaseModel.PhoneType" />
+    <EntitySet Name="Users" EntityType="DatabaseModel.User" />
+    <AssociationSet Name="FK_PhoneBook_PhoneTypeId" Association="DatabaseModel.FK_PhoneBook_PhoneTypeId">
+      <End Role="PhoneType" EntitySet="PhoneTypes" />
+      <End Role="PhoneBook" EntitySet="PhoneBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhoneBook_UserId" Association="DatabaseModel.FK_PhoneBook_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PhoneBook" EntitySet="PhoneBooks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PhoneBook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="PhoneTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneType" Relationship="DatabaseModel.FK_PhoneBook_PhoneTypeId" FromRole="PhoneBook" ToRole="PhoneType" />
+    <NavigationProperty Name="User" Relationship="DatabaseModel.FK_PhoneBook_UserId" FromRole="PhoneBook" ToRole="User" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PhoneType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneBooks" Relationship="DatabaseModel.FK_PhoneBook_PhoneTypeId" FromRole="PhoneType" ToRole="PhoneBook" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhoneBooks" Relationship="DatabaseModel.FK_PhoneBook_UserId" FromRole="User" ToRole="PhoneBook" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_PhoneBook_PhoneTypeId">
+    <End Type="DatabaseModel.PhoneType" Role="PhoneType" Multiplicity="1" />
+    <End Type="DatabaseModel.PhoneBook" Role="PhoneBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhoneType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhoneBook">
+        <PropertyRef Name="PhoneTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhoneBook_UserId">
+    <End Type="DatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="DatabaseModel.PhoneBook" Role="PhoneBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhoneBook">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
