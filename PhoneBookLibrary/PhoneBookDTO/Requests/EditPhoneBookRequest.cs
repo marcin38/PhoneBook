@@ -1,13 +1,12 @@
-﻿using PhoneBookModel;
-
+﻿
 namespace PhoneBookDTO.Requests
 {
-    public class EditPhoneBookRequest : EntityCore
+    public class EditPhoneBookRequest
     {
         /// <summary>
-        /// Id of user whose number is stored
+        /// Id of contact in phone book
         /// </summary>
-        public int UserId { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Type of phone number
@@ -15,8 +14,18 @@ namespace PhoneBookDTO.Requests
         public int PhoneTypeId { get; set; }
 
         /// <summary>
-        /// Telephone number of user
+        /// Telephone number of contact in phone book
         /// </summary>
         public string Number { get; set; }
+
+        /// <summary>
+        /// First name of contact in phone book
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Last name of contact in phone book
+        /// </summary>
+        public string LastName { get; set; }
     }
 }

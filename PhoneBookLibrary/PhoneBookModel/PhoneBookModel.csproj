@@ -67,7 +67,6 @@
     <Compile Include="Model\PhoneBook.cs" />
     <Compile Include="Model\DatabaseEntities.cs" />
     <Compile Include="Model\PhoneType.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

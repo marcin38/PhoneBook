@@ -50,11 +50,9 @@
     <Compile Include="Repositories\Interfaces\IPhoneBookRepository.cs" />
     <Compile Include="Repositories\Interfaces\IPhoneTypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\PhoneBookRepository.cs" />
     <Compile Include="Repositories\PhoneTypeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

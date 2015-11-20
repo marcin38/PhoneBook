@@ -9,8 +9,6 @@ namespace PhoneBookLibrary.AutoMappings
         public void Configure()
         {
             Mapper.CreateMap<PhoneBook, PhoneBookEntry>();
-            Mapper.CreateMap<User, UserEntry>();
-            Mapper.CreateMap<PhoneType, PhoneTypeEntry>();
         }
 
     }

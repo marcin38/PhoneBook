@@ -1,7 +1,6 @@
-﻿using PhoneBookDTO.Entries;
-using PhoneBookDTO.Requests;
+﻿using PhoneBookDTO.Requests;
 using PhoneBookDTO.Responses;
-using PhoneBookModel;
+
 namespace PhoneBookLibrary.Services.Interfaces
 {
     interface IPhoneBookService
@@ -9,6 +8,6 @@ namespace PhoneBookLibrary.Services.Interfaces
         BaseResponse Create(CreatePhoneBookRequest request);
         BaseResponse Delete(DeletePhoneBookRequest request);
         BaseResponse Edit(EditPhoneBookRequest request);
-        GetListResponse<PhoneBookEntry> GetPhoneBookList(GetListRequest<PhoneBook> request);
+        GetListResponse GetPhoneBookList(GetListRequest request);
     }
 }

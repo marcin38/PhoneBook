@@ -1,10 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-
+﻿
 namespace PhoneBookDTO.Requests
 {
-    public class GetListRequest<T>
+    public enum Order
+    {
+        NoOrdering,
+        OrderByFirstNameDescending,
+        OrderByFirstNameAscending,
+        OrderByLastNameDescending,
+        OrderByLastNameAscending,
+    }
+
+    public class GetListRequest
     {
         /// <summary>
         /// Number of rows you want to get
@@ -12,18 +18,18 @@ namespace PhoneBookDTO.Requests
         public int NumberOfEntries { get; set; }
 
         /// <summary>
-        /// Criteria for filtering
+        /// Filter for first name
         /// </summary>
-        public Expression<Func<T, bool>> Filter { get; set; }
+        public string FilterByFirstName { get; set; }
 
         /// <summary>
-        /// Criteria for ordering
+        /// Filter for last name
         /// </summary>
-        public Func<IQueryable<T>, IOrderedQueryable<T>> OrderBy { get; set; }
+        public string FilterByLastName { get; set; }
 
         /// <summary>
-        /// Properties that are lazy loaded
+        /// Order of elements
         /// </summary>
-        public string includeProperties { get; set; }
+        public Order OrderBy { get; set; }
     }
 }

@@ -6,26 +6,26 @@ namespace PhoneBookDTO.Entries
         /// <summary>
         /// Id of element in phone book
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
-        /// Telephone number
+        /// Telephone number of contact in phone book
         /// </summary>
         public string Number { get; set; }
 
         /// <summary>
-        /// Type of phone
+        /// Type of phone number
         /// </summary>
         public string PhoneTypeName { get; set; }
 
         /// <summary>
-        /// First name of user
+        /// First name of contact in phone book
         /// </summary>
-        public string UserFirstName { get; set; }
+        public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name of user
+        /// Last name of contact in phone book
         /// </summary>
-        public string UserLastName { get; set; }
+        public string LastName { get; set; }
     }
 }

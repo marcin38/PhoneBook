@@ -1,9 +1,11 @@
-﻿using PhoneBookModel;
-
+﻿
 namespace PhoneBookDTO.Requests
 {
-    public class DeletePhoneBookRequest : EntityCore
+    public class DeletePhoneBookRequest
     {
-        
+        /// <summary>
+        /// Id of contact in phone book
+        /// </summary>
+        public long Id { get; set; }
     }
 }
